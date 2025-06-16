@@ -11,7 +11,6 @@ public class GameController : MonoBehaviour
     {
         _pelletSpawner = GetComponent<PelletSpawner>();
         _pelletCollector = GetComponent<PelletCollector>();
-        //This is for github trial
     }
 
     private void Start()
