@@ -2,20 +2,37 @@ using UnityEngine;
 
 public class PlayerInputManager : MonoBehaviour
 {
+    bool canTakeInput = true;
+
     float xInput;
     float yInput;
-
+    private void Start()
+    {
+        GameController.Instance.onGameStart += GameStart;
+        GameController.Instance.onGameEnd += GameEnd;
+    }
     private void Update()
     {
-        InputManager();     
+        if (!canTakeInput) return;
+        InputManager();
+    }
+    void GameStart()
+    {
+        canTakeInput = true;
+    }
+    void GameEnd()
+    {
+        xInput = 0;
+        yInput = 0;
+        canTakeInput = false;
     }
     void InputManager()
     {
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             yInput = 1;
         }
-        else if(Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
             yInput = -1;
         }
@@ -38,6 +55,6 @@ public class PlayerInputManager : MonoBehaviour
     }
     public Vector2 ReturnMovementVector()
     {
-        return new Vector2(xInput,yInput);
+        return new Vector2(xInput, yInput);
     }
 }//Class

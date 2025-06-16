@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject _gameOverScreen;
 
     public event Action onGameStart;
+    public event Action onGameEnd;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class GameController : MonoBehaviour
 
     public void EndGame()
     {
+        onGameEnd?.Invoke();
         _gameOverScreen.SetActive(true);
     }
 }
