@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a9219c6ea60914cbf4014c4eb08bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 7497981104677954683}
+  mr: {fileID: 2663315627826198437}
+  basketball: {r: 0.8000001, g: 0.5058824, b: 0.3647059, a: 1}
 --- !u!135 &7497981104677954683
 SphereCollider:
   m_ObjectHideFlags: 0
